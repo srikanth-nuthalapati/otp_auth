@@ -1,6 +1,6 @@
 const express = require("express")
 const nodemailer = require("nodemailer");
-const otp = require("./otp")
+const otp = require("./otp.js")
 const cors = require("cors");
 const e = require("express");
 require("dotenv").config()
@@ -25,6 +25,7 @@ let storeOtp = {};
 
 app.post("/gmail",(req,res)=>{
     let code = otp();
+    console.log(code);
     storeOtp[req.body.email] = code;
     let options = {
             from: 'srikanthjames30@gmail.com',
