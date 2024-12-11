@@ -35,10 +35,18 @@ app.post("/gmail",(req,res)=>{
     
     transporter.sendMail(options,(err,info)=>{
         if(err){
-            res.send(err.message)  
+            res.status(500).json({
+                status: 500,
+                message: "Error sending email",
+                error: err.message
+            });  
         }
         else{
-            res.send(info);           
+            res.status(200).json({
+                status: 200,
+                message: "OTP sent successfully",
+                info: info
+            });          
         }
     });
 });
