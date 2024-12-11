@@ -1,6 +1,6 @@
 const express = require("express")
 const nodemailer = require("nodemailer");
-const otp = require("../moduletask_13_11/otp")
+const otp = require("./otp")
 const cors = require("cors");
 const e = require("express");
 require("dotenv").config()
